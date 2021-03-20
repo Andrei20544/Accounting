@@ -1,0 +1,538 @@
+﻿<Window x:Class="Accounting.View.ChangeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Accounting.View"
+        mc:Ignorable="d"
+        Title="ChangeWindow" 
+        Height="500" 
+        Width="1100"
+        AllowsTransparency="True" 
+        WindowStyle="None" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <Window.Resources>
+
+        <Style TargetType="Border" x:Key="BordTit">
+
+            <Style.Triggers>
+
+                <EventTrigger RoutedEvent="MouseEnter">
+
+                    <BeginStoryboard>
+
+                        <Storyboard>
+
+                            <DoubleAnimation Storyboard.TargetProperty="Width" To="300" Duration="0:0:0.3"/>
+
+                        </Storyboard>
+                        
+                    </BeginStoryboard>
+                    
+                </EventTrigger>
+
+                <EventTrigger RoutedEvent="MouseLeave">
+
+                    <BeginStoryboard>
+
+                        <Storyboard>
+
+                            <DoubleAnimation Storyboard.TargetProperty="Width" To="180" Duration="0:0:0.3"/>
+
+                        </Storyboard>
+
+                    </BeginStoryboard>
+
+                </EventTrigger>
+
+            </Style.Triggers>
+            
+        </Style>
+        
+    </Window.Resources>
+
+    <Window.Triggers>
+
+        <!--SaveAgent Button Trigger-->
+        <EventTrigger RoutedEvent="MouseMove"
+                      SourceName="SaveAG">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimSaveAgentEnter}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseLeave"
+                      SourceName="SaveAG">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimSaveAgentLeave}"/>
+        </EventTrigger>
+        <!--SaveAgent Button Trigger-->
+
+        <!--SaveAP Button Trigger-->
+        <EventTrigger RoutedEvent="MouseMove"
+                      SourceName="SaveAPP">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimSaveAPEnter}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseLeave"
+                      SourceName="SaveAPP">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimSaveAPLeave}"/>
+        </EventTrigger>
+        <!--SaveAP Button Trigger-->
+
+        <!--SaveALL Button Trigger-->
+        <EventTrigger RoutedEvent="MouseMove"
+                      SourceName="ALLSave">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimSaveALLEnter}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseLeave"
+                      SourceName="ALLSave">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimSaveALLLeave}"/>
+        </EventTrigger>
+        <!--SaveALL Button Trigger-->
+        
+
+    </Window.Triggers>
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Border Background="#FF60A2A8"
+                    CornerRadius="8"
+                    HorizontalAlignment="Right"
+                    Name="BordTitle"
+                    Width="180"
+                    Margin="0 0 50 0"
+                    Style="{StaticResource BordTit}" 
+                    MouseDown="BordTitle_MouseDown"
+                    BorderThickness="1 1 1 0"
+                    BorderBrush="#FF457B80">
+
+                <Label Content="Окно изменений"
+                   FontSize="18"
+                   Foreground="White"
+                   VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                   Margin="5 0 0 0" FontWeight="Bold"/>
+
+            </Border>
+
+            <Border Background="#FF60A2A8"
+                    CornerRadius="8"
+                    HorizontalAlignment="Right">
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+
+                    <Button Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    HorizontalAlignment="Right"
+                    IsCancel="True">
+
+                        <materialDesign:PackIcon Kind="Close"/>
+
+                    </Button>
+
+                </StackPanel>
+
+            </Border>
+
+        </Grid>
+
+        <Border Background="AliceBlue"
+                Name="Main"
+                CornerRadius="8"
+                Grid.Row="1"
+                BorderThickness="1"
+                BorderBrush="#FFB0B0B0">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Агент"
+                           FontSize="22"
+                           Margin="20 0 0 0"/>
+                    
+                    <Label Content="Квартира"
+                           FontSize="22"
+                           Margin="20 0 0 0"
+                           Grid.Column="1"/>
+
+                    <Border Grid.Row="1"
+                            Margin="3"
+                            BorderBrush="#FFB6B6B6"
+                            BorderThickness="2 0 2 0"
+                            CornerRadius="15">
+
+                        <Grid>
+
+                            <StackPanel Margin="4">
+
+                                <Border Margin="0 20 0 0"
+                                Background="White"
+                                BorderBrush="#FFCFCFCF"
+                                BorderThickness="1">
+
+                                    <StackPanel>
+
+                                        <Label Content="ФИО"
+                                               FontSize="20"/>
+                                        <TextBox Margin="5"
+                                                 FontSize="18"
+                                                 Name="FIOText" KeyDown="FIOText_KeyDown"
+                                                 MaxLength="100"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                <Border Margin="0 20 0 0"
+                                Background="White"
+                                BorderBrush="#FFCFCFCF"
+                                BorderThickness="1">
+
+                                    <StackPanel>
+
+                                        <Label Content="Процентные отчисления"
+                                               FontSize="20"/>
+                                        <TextBox Margin="5"
+                                                 FontSize="18"
+                                                 Name="PercentText" KeyDown="PercentText_KeyDown" TextChanged="PercentText_TextChanged"
+                                                 MaxLength="3"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                
+
+                            </StackPanel>
+
+                            <StackPanel VerticalAlignment="Bottom">
+
+                                <Button Background="#FFD6D6D6"
+                                    BorderBrush="{x:Null}"
+                                    Margin="5 0 5 10"                                   
+                                    Click="SaveAgent"
+                                    Name="SaveAG">
+
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <materialDesign:PackIcon Kind="ContentSave"
+                                                             VerticalAlignment="Center"
+                                                             Height="23"
+                                                             Width="23"
+                                                             Foreground="#FF5E7580"
+                                                             Name="IcoSaveAgent"/>
+                                        <TextBlock Text="Сохранить изменения в агенте"
+                                           Margin="15 0 0 0"
+                                           FontSize="17"
+                                           Foreground="#FF5E7580"/>
+
+                                    </StackPanel>
+
+                                </Button>
+
+                                <Button Background="#FFD6D6D6"
+                                    BorderBrush="{x:Null}"
+                                    Margin="5 0 5 10"
+                                        Click="DeleteAgent">
+
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <materialDesign:PackIcon Kind="Delete"
+                                                             VerticalAlignment="Center"
+                                                             Height="23"
+                                                             Width="23"
+                                                             Foreground="#FF5E7580"/>
+                                        <TextBlock Text="Удалить агента"
+                                           Margin="15 0 0 0"
+                                           FontSize="17"
+                                           Foreground="#FF5E7580"/>
+
+                                    </StackPanel>
+
+                                </Button>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </Border>
+
+                    <Border Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="3"
+                            BorderBrush="#FFB6B6B6"
+                            BorderThickness="2 0 2 0"
+                            CornerRadius="15">
+
+                        <StackPanel Grid.Row="1"
+                                    Grid.Column="1"
+                                    Margin="4">
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Name="panel">
+
+                                <StackPanel Margin="0 0 10 0"
+                                            Width="350">
+
+                                    <Border Margin="0 20 0 0"
+                                        Background="White"
+                                        BorderBrush="#FFCFCFCF"
+                                        BorderThickness="1">
+
+                                        <StackPanel>
+
+                                            <Label Content="Название улицы"
+                                               FontSize="20"/>
+                                            <TextBox Margin="5"
+                                                 FontSize="18"
+                                                 Name="STNameText" KeyDown="STNameText_KeyDown"
+                                                 MaxLength="120"/>
+
+                                        </StackPanel>
+
+                                    </Border>
+
+                                    <Border Margin="0 20 0 0"
+                                        Background="White"
+                                        BorderBrush="#FFCFCFCF"
+                                        BorderThickness="1">
+
+                                        <StackPanel>
+
+                                            <Label Content="Номер квартиры"
+                                                   FontSize="20"/>
+                                            <TextBox Margin="5"
+                                                     FontSize="18"
+                                                     Name="APNumText" KeyDown="APNumText_KeyDown"
+                                                     MaxLength="5"/>
+
+                                        </StackPanel>
+
+                                    </Border>
+
+                                    <Border Margin="0 20 0 0"
+                                        Background="White"
+                                        BorderBrush="#FFCFCFCF"
+                                        BorderThickness="1">
+
+                                        <StackPanel>
+
+                                            <Label Content="Количество комнат"
+                                                   FontSize="20"/>
+                                            <TextBox Margin="5"
+                                                     FontSize="18"
+                                                     Name="AmountRoomText" KeyDown="AmountRoomText_KeyDown"
+                                                     MaxLength="2"/>
+
+                                        </StackPanel>
+
+                                    </Border>
+
+                                </StackPanel>
+
+                                <StackPanel Margin="10 0 0 0"
+                                        Width="350">
+
+                                    <Border Margin="0 20 0 0"
+                                            Background="White"
+                                            BorderBrush="#FFCFCFCF"
+                                            BorderThickness="1">
+
+                                        <StackPanel>
+
+                                            <Label Content="Номер дома"
+                                                   FontSize="20"/>
+                                            <TextBox Margin="5"
+                                                     FontSize="18"
+                                                     Name="HouseNumText" KeyDown="HouseNumText_KeyDown"
+                                                     MaxLength="5"/>
+
+                                        </StackPanel>
+
+                                    </Border>
+
+                                    <Border Margin="0 20 0 0"
+                                            Background="White"
+                                            BorderBrush="#FFCFCFCF"
+                                            BorderThickness="1">
+
+                                        <StackPanel>
+
+                                            <Label Content="Площадь"
+                                                   FontSize="20"/>
+                                            <TextBox Margin="5"
+                                                     FontSize="18"
+                                                     Name="SquareText" KeyDown="SquareText_KeyDown"
+                                                     MaxLength="10"/>
+
+                                        </StackPanel>
+
+                                    </Border>
+
+                                    <Border Margin="0 20 0 0"
+                                Background="White"
+                                BorderBrush="#FFCFCFCF"
+                                BorderThickness="1">
+
+                                        <StackPanel>
+
+                                            <Label Content="Цена"
+                                                   FontSize="20"/>
+                                            <TextBox Margin="5"
+                                                     FontSize="18"
+                                                     Name="PriceText" KeyDown="PriceText_KeyDown"
+                                                     MaxLength="50"/>
+
+                                        </StackPanel>
+
+                                    </Border>
+
+                                </StackPanel>
+
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Right">
+
+                                <Button Background="#FFD6D6D6"
+                                    BorderBrush="{x:Null}"
+                                    Margin="5 20 0 5"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                        Click="DeleteAP">
+
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <materialDesign:PackIcon Kind="Delete"
+                                                             VerticalAlignment="Center"
+                                                             Height="23"
+                                                             Width="23"
+                                                             Foreground="#FF5E7580"/>
+                                        <TextBlock Text="Удалить квартиру"
+                                           Margin="15 0 0 0"
+                                           FontSize="17"
+                                           Foreground="#FF5E7580"/>
+
+                                    </StackPanel>
+
+                                </Button>
+
+                                <Button Background="#FFD6D6D6"
+                                    BorderBrush="{x:Null}"
+                                    Margin="5 20 0 5"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Width="350"
+                                    Click="SaveAP"
+                                    Name="SaveAPP">
+
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <materialDesign:PackIcon Kind="ContentSave"
+                                                             VerticalAlignment="Center"
+                                                             Height="23"
+                                                             Width="23"
+                                                             Foreground="#FF5E7580"
+                                                             Name="IcoSaveAP"/>
+                                        <TextBlock Text="Сохранить изменения в квартире"
+                                           Margin="15 0 0 0"
+                                           FontSize="17"
+                                           Foreground="#FF5E7580"/>
+
+                                    </StackPanel>
+
+                                </Button>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </Border>
+
+                </Grid>
+
+
+                <Grid Grid.Row="1">
+
+                    <Button Background="#FFD6D6D6"
+                            BorderBrush="{x:Null}"
+                            Margin="0 0 20 0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Click="AllSave"
+                            Name="ALLSave">
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <materialDesign:PackIcon Kind="ContentSaveEdit"
+                                                     VerticalAlignment="Center"
+                                                     Height="23"
+                                                     Width="23"
+                                                     Foreground="#FF5E7580"
+                                                     Name="IcoAllSave"/>
+                            <TextBlock Text="Сохранить"
+                                           Margin="15 0 0 0"
+                                           FontSize="17"
+                                           Foreground="#FF5E7580"/>
+
+                        </StackPanel>
+
+                    </Button>
+                    
+                    
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="10 0 0 0">
+
+                        <ComboBox Width="260"
+                                  Name="FIOComb" SelectionChanged="FIOComb_SelectionChanged"/>
+                        <ComboBox Width="220"
+                                  Margin="15 0 0 0"
+                                  Name="APComb" SelectionChanged="APComb_SelectionChanged"/>
+
+                    </StackPanel>
+
+                </Grid>
+                
+            </Grid>
+            
+        </Border>
+        
+    </Grid>
+</Window>

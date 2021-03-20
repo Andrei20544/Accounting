@@ -1,0 +1,119 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Accounting.Resources">
+
+    <!--AddAgent Button Animation-->
+    <Storyboard x:Key="IcoAnimEnterAgent">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="DarkOliveGreen"
+                            Storyboard.TargetName="IcoAgent"/>
+    </Storyboard>
+
+    <Storyboard x:Key="IcoAnimLeaveAgent">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="{x:Null}"
+                            Storyboard.TargetName="IcoAgent"/>
+    </Storyboard>
+    <!--AddAgent Button Animation-->
+
+    <!--AddApartament Button Animation-->
+    <Storyboard x:Key="IcoAnimEnterAP">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="DarkOliveGreen"
+                            Storyboard.TargetName="IcoAP"/>
+    </Storyboard>
+
+    <Storyboard x:Key="IcoAnimLeaveAP">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="{x:Null}"
+                            Storyboard.TargetName="IcoAP"/>
+    </Storyboard>
+    <!--AddApartament Button Animation-->
+
+
+    <!--AddApartament Button Animation-->
+    <Storyboard x:Key="IcoAnimEnterDeal">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="DarkOliveGreen"
+                            Storyboard.TargetName="IcoDeal"/>
+    </Storyboard>
+
+    <Storyboard x:Key="IcoAnimLeaveDeal">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="{x:Null}"
+                            Storyboard.TargetName="IcoDeal"/>
+    </Storyboard>
+    <!--AddApartament Button Animation-->
+
+    <!--SaveAgent Button Animation-->
+    <Storyboard x:Key="IcoAnimSaveAgentEnter">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="DarkOliveGreen"
+                            Storyboard.TargetName="IcoSaveAgent"/>
+    </Storyboard>
+
+    <Storyboard x:Key="IcoAnimSaveAgentLeave">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="{x:Null}"
+                            Storyboard.TargetName="IcoSaveAgent"/>
+    </Storyboard>
+    <!--SaveAgent Button Animation-->
+
+    <!--SaveAP Button Animation-->
+    <Storyboard x:Key="IcoAnimSaveAPEnter">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="DarkOliveGreen"
+                            Storyboard.TargetName="IcoSaveAP"/>
+    </Storyboard>
+
+    <Storyboard x:Key="IcoAnimSaveAPLeave">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="{x:Null}"
+                            Storyboard.TargetName="IcoSaveAP"/>
+    </Storyboard>
+    <!--SaveAP Button Animation-->
+
+    <!--SaveALL Button Animation-->
+    <Storyboard x:Key="IcoAnimSaveALLEnter">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="LightSeaGreen"
+                            Storyboard.TargetName="IcoAllSave"/>
+    </Storyboard>
+
+    <Storyboard x:Key="IcoAnimSaveALLLeave">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="{x:Null}"
+                            Storyboard.TargetName="IcoAllSave"/>
+    </Storyboard>
+    <!--SaveLL Button Animation-->
+
+    <!--SaveALL Button Animation-->
+    <Storyboard x:Key="IcoAnimDeleteDealEnter">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="DarkRed"
+                            Storyboard.TargetName="IcoDealDelete"/>
+    </Storyboard>
+
+    <Storyboard x:Key="IcoAnimDeleteDealLeave">
+        <ColorAnimation Storyboard.TargetProperty="Foreground.Color" 
+                            Duration="0:0:0.1" 
+                            To="{x:Null}"
+                            Storyboard.TargetName="IcoDealDelete"/>
+    </Storyboard>
+    <!--SaveLL Button Animation-->
+
+
+</ResourceDictionary>

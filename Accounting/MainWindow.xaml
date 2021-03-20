@@ -1,0 +1,251 @@
+﻿<Window x:Class="Accounting.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Accounting"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="720" 
+        Width="1280" 
+        MinHeight="620"
+        MinWidth="1080"
+        MaxHeight="880"
+        MaxWidth="1590"
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="Transparent" 
+        WindowStyle="None"
+        AllowsTransparency="True" 
+        ResizeMode="CanResizeWithGrip">
+
+    <Window.Triggers>
+
+        <!--AddAgent Button Trigger-->
+        <EventTrigger RoutedEvent="MouseMove"
+                      SourceName="AgentAdd">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimEnterAgent}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseLeave"
+                      SourceName="AgentAdd">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimLeaveAgent}"/>
+        </EventTrigger>
+        <!--AddAgent Button Trigger-->
+
+        <!--AddAP Button Trigger-->
+        <EventTrigger RoutedEvent="MouseMove"
+                      SourceName="AddAP">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimEnterAP}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseLeave"
+                      SourceName="AddAP">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimLeaveAP}"/>
+        </EventTrigger>
+        <!--AddAP Button Trigger-->
+
+        <!--AddDeal Button Trigger-->
+        <EventTrigger RoutedEvent="MouseMove"
+                      SourceName="DealAdd">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimEnterDeal}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseLeave"
+                      SourceName="DealAdd">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimLeaveDeal}"/>
+        </EventTrigger>
+        <!--AddDeal Button Trigger-->
+
+        <!--DeleteDeal Button Trigger-->
+        <EventTrigger RoutedEvent="MouseMove"
+                      SourceName="DeleteDeal">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimDeleteDealEnter}"/>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseLeave"
+                      SourceName="DeleteDeal">
+            <BeginStoryboard Storyboard="{StaticResource IcoAnimDeleteDealLeave}"/>
+        </EventTrigger>
+        <!--DeleteDeal Button Trigger-->
+
+    </Window.Triggers>
+
+    <Grid Background="Transparent">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+            <RowDefinition Height="38"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="Header"
+              Grid.Row="0"
+              Background="#FF60A2A8" 
+              MouseDown="Header_MouseDown">
+
+            <Label Content="Учет сделок с недвижимостью"
+                   FontSize="18"
+                   Foreground="White"
+                   VerticalAlignment="Center"
+                   Margin="5 0 0 0" FontWeight="Bold"/>
+
+            <!--Button Exit / Minimize-->
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+
+                <Button Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    HorizontalAlignment="Right"
+                    Click="Button_Click_1">
+
+                    <materialDesign:PackIcon Kind="WindowMinimize"/>
+
+                </Button>
+
+                <Button Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    HorizontalAlignment="Right"
+                    IsCancel="True"
+                    Click="Button_Click">
+
+                    <materialDesign:PackIcon Kind="Close"/>
+
+                </Button>
+
+            </StackPanel>
+
+        </Grid>
+
+        <!--Main Place-->
+        <Grid x:Name="Main"
+              Grid.Row="1"
+              Background="Transparent">
+
+            <DataGrid BorderThickness="2"
+                      BorderBrush="Transparent"
+                      Name="GridDeal"
+                      IsReadOnly="True"
+                      AutoGenerateColumns="False"
+                      FontSize="17"
+                      Background="#FFE6E6E6" MouseDoubleClick="GridDeal_MouseDoubleClick">
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="ФИО Риэтора"
+                                        Binding="{Binding Path=FIORieltor}"
+                                        Width="380"/>
+
+                    <DataGridTextColumn Header="Площадь квартиры"
+                                        Binding="{Binding Path=SquareApartament}"/>
+
+                    <DataGridTextColumn Header="Цена"
+                                        Binding="{Binding Path=Price}"
+                                        Width="190"/>
+
+                    <DataGridTextColumn Header="Процентные отчисления"
+                                        Binding="{Binding Path=Percent}"/>
+
+                    <DataGridTextColumn Header="ID квартиры"
+                                        Binding="{Binding Path=IDAP}"
+                                        Visibility="Collapsed"/>
+
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </Grid>
+
+        <!--Footer-->
+        <Grid x:Name="Footer"
+              Grid.Row="2"
+              Background="#FF3F6E72">
+
+            <StackPanel HorizontalAlignment="Left"
+                        Margin="5 0 0 0"
+                        Orientation="Horizontal">
+
+                <Button Background="#FF14919C"
+                    BorderBrush="{x:Null}"
+                    HorizontalAlignment="Right"
+                    Margin="5 0 0 0"
+                    Click="AddAgentWindow"
+                    Name="AgentAdd">
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+
+                        <materialDesign:PackIcon Kind="AddBold"
+                                                 VerticalAlignment="Center"
+                                                 Name="IcoAgent"/>
+                        <TextBlock Text="Агент"
+                                   Margin="5 0 0 0"/>
+
+                    </StackPanel>
+
+                </Button>
+
+                <Button Background="#FF14919C"
+                    BorderBrush="{x:Null}"
+                    HorizontalAlignment="Right"
+                    Margin="5 0 0 0"
+                    Click="AddApartamentWindow"
+                    Name="AddAP">
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <materialDesign:PackIcon Kind="AddBold"
+                                                 VerticalAlignment="Center"
+                                                 Name="IcoAP"/>
+                        <TextBlock Text="Квартира"
+                                   Margin="5 0 0 0"/>
+
+                    </StackPanel>
+
+                </Button>
+
+            </StackPanel>
+
+            <Button Background="#FF14919C"
+                    BorderBrush="{x:Null}"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 135 0"
+                    Click="DeleteDeal_Click"
+                    Name="DeleteDeal">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <materialDesign:PackIcon Kind="Delete"
+                                             Name="IcoDealDelete"/>
+                    <TextBlock Text="Удалить сделку"
+                               Margin="5 0 0 0"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button Background="#FF14919C"
+                    BorderBrush="{x:Null}"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 5 0"
+                    Click="AddDeal"
+                    Name="DealAdd">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <materialDesign:PackIcon Kind="Deal"
+                                         Name="IcoDeal"/>
+                    <TextBlock Text="Заключить"
+                               Margin="5 0 0 0"/>
+
+                </StackPanel>
+
+            </Button>
+
+        </Grid>
+
+    </Grid>
+</Window>
