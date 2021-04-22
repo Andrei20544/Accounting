@@ -1,0 +1,59 @@
+ private Dictionary<int, Realtors> realtors = new Dictionary<int, Realtors>();
+
+        public TestWin()
+        {
+            InitializeComponent();
+
+            GetEntry(0);
+
+        }
+
+        private void GetEntry(int index)
+        {
+            using (ModelBD model = new ModelBD())
+            {
+                var query = from r in model.Realtors
+                            select r;              
+
+                FIOTextbox.Text = query.Where(n => n.ID.Equals(index + 1)).FirstOrDefault().FIO;
+                percentTextbox.Text = query.Where(n => n.ID.Equals(index + 1)).FirstOrDefault().Percent.ToString();
+                idtext.Text = query.Where(n => n.ID.Equals(index + 1)).FirstOrDefault().ID.ToString();
+
+                foreach (var item in query)
+                {
+                    realtors.Add(index + 1, item);
+                    index++;
+                }
+            }
+        }
+
+        //Переключение записей
+        private void NextEntry(int index)
+        {
+            try
+            {
+                int _maxLenth = realtors.Count;
+
+                if (index <= _maxLenth && index > 0)
+                {
+                    FIOTextbox.Text = realtors[index].FIO;
+                    percentTextbox.Text = realtors[index].Percent.ToString();
+                    idtext.Text = index.ToString();
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void leftBtn(object sender, RoutedEventArgs e)
+        {
+            NextEntry(int.Parse(idtext.Text) - 1);
+        }
+
+        private void rightBtn(object sender, RoutedEventArgs e)
+        {
+            NextEntry(int.Parse(idtext.Text) + 1);
+        }
